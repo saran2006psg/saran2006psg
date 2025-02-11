@@ -48,5 +48,5 @@
 
 ## 🐍 Contribution Snake:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/saran2006psg/saran2006psg/output/github-contribution-grid-snake.svg" alt="Snake Contribution Graph" />
+  <img src="https://github.com/saran2006psg/saran2006psg/blob/output/github-contribution-grid-snake.svg" />
 </p>
