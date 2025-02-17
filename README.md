@@ -4,7 +4,7 @@
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=saran2006psg&label=Profile%20views&color=0e75b6&style=flat" alt="Profile Views" />
 </p>
-
+ 
 ## 🧐 About Me
 - 🔭 I’m currently studying at **PSG College of Technology**
 - 💡 Passionate about **AI, ML, DSA & Open Source**
