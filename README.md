@@ -7,7 +7,7 @@
 
 ## 🧐 About Me
 - 🔭 I’m currently studying at **PSG College of Technology**
-- 💡 Passionate about **AI, ML,  DSA & Open Source**
+- 💡 Passionate about **AI, ML, DSA & Open Source**
 - 🌱 Currently learning **Deep Learning &  Computer Vision**
 - 📫 How to reach me: **saranpsg2006@gmail.com**
 - ⚡ Fun fact: **I love solving real-world problems with code!**
