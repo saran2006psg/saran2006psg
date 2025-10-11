@@ -34,18 +34,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="Matlab" width="40" height="40"/>
 </p>
 
-## 📊 GitHub Stats:
-<p>
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=saran2006psg&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
-</p>
 
-<p>
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=saran2006psg&show_icons=true&locale=en" alt="GitHub Stats" />
-</p>
-
-<p>
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=saran2006psg&" alt="GitHub Streak Stats" />
-</p>
 
 ## 🐍 Contribution Snake:
 <p align="center">
