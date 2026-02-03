@@ -5,12 +5,6 @@
   <img src="https://komarev.com/ghpvc/?username=saran2006psg&label=Profile%20views&color=0e75b6&style=flat" alt="Profile Views" />
 </p>
  
-## 🧐 About Me
-- 🔭 I’m currently studying at **PSG College of Technology**
-- 💡 Passionate about **AI, ML, DSA & Open Source**
-- 🌱 Currently learning **Deep Learning &  Computer Vision**
-- 📫 How to reach me: **saranpsg2006@gmail.com**
-- ⚡ Fun fact: **I love solving real-world problems with code!**
 
 
 ## 🌐 Connect With Me:
@@ -35,5 +29,11 @@
 </p>
 
 
-
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/saran2006psg/saran2006psg/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/saran2006psg/saran2006psg/output/github-contribution-grid-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/saran2006psg/saran2006psg/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
 
