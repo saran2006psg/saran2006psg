@@ -1,33 +1,65 @@
-<h1 align="center">Hi 👋, I'm SARAN M</h1>
-<h3 align="center">A passionate ML student from India</h3>
+<h1 align="center">Hey there, I'm Saran M 👋</h1>
+
+<p align="center">
+  <em>CS (AIML) student @ PSG College of Technology · Building at the intersection of AI & Embedded Systems</em>
+</p>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=saran2006psg&label=Profile%20views&color=0e75b6&style=flat" alt="Profile Views" />
 </p>
- 
 
+---
 
-## 🌐 Connect With Me:
+## 🧭 About Me
+
+- 🎓 B.E. in Computer Science (AIML) — **CGPA: 8.63**
+- 🔧 Background in **Electrical & Electronics** before diving into CS
+- 🤖 Passionate about **AI/ML**, **Embedded Systems**, and **Full-Stack Dev**
+- 🏆 **1st Prize** at CREATE 2024 (National Level) for *Smart Sign Glove for Disabled People*
+- 📍 Based in Coimbatore, Tamil Nadu
+
+---
+
+## 🚀 Featured Projects
+
+### 🔍 [Legal Contract Risk Analyzer](https://github.com/saran2006psg)
+> AI system that reads and risk-rates legal contracts in under 30 seconds
+
+- Vector search over **9,447 legal clauses** using SentenceTransformers + Pinecone
+- OCR pipeline for scanned PDFs via PyMuPDF & EasyOCR
+- Clause-level risk classification (High / Medium / Low) powered by **LLaMA via Groq**
+
+### 📔 [ReLive – Digital Memory Journal](https://github.com/saran2006psg)
+> A full-stack journal app with mood tracking & timeline views
+
+- Built with **Next.js**, TypeScript, and Supabase
+- Media uploads & cloud storage via **Cloudinary**
+- Secure auth, gallery views, and timeline browsing
+
+---
+
+## 🛠️ Tech Stack
+
+```
+Languages     →  Python, C, Java
+Web           →  Next.js, HTML5, CSS3
+Databases     →  SQL, Firebase
+AI/ML         →  Scikit-learn, OpenCV, LLaMA (Groq), Pinecone
+Embedded      →  Arduino, 8051, Sensors
+Tools         →  Git, GitHub, Linux
+```
+
+---
+
+## 🌐 Connect With Me
+
 <p align="left">
-  <a href="https://linkedin.com/in/saranpsg" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn" /></a>
-  <a href="https://medium.com/@saranpsg2006" target="_blank"><img src="https://img.shields.io/badge/Medium-black?style=for-the-badge&logo=medium" alt="Medium" /></a>
-  <a href="https://auth.geeksforgeeks.org/user/saranpsgv2o" target="_blank"><img src="https://img.shields.io/badge/GeeksForGeeks-green?style=for-the-badge&logo=geeksforgeeks" alt="GeeksForGeeks" /></a>
+  <a href="https://linkedin.com/in/saranpsg"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://medium.com/@saranpsg2006"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" /></a>
+  <a href="https://auth.geeksforgeeks.org/user/saranpsgv2o"><img src="https://img.shields.io/badge/GeeksForGeeks-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" /></a>
 </p>
 
-## 🛠️ Languages and Tools:
-<p align="left">
-  <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="Arduino" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="OpenCV" width="40" height="40"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-Learn" width="40" height="40"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="Matlab" width="40" height="40"/>
-</p>
-
+---
 
 <div align="center">
   <picture>
@@ -36,4 +68,3 @@
     <img alt="github-snake" src="https://raw.githubusercontent.com/saran2006psg/saran2006psg/output/github-contribution-grid-snake.svg" />
   </picture>
 </div>
-
