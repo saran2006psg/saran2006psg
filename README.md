@@ -12,7 +12,7 @@
 
 ## 🧭 About Me
 
-- 🎓 B.E. in Computer Science (AIML) — **CGPA: 8.63**
+- 🎓 B.E. in Computer Science (AIML) 
 - 🔧 Background in **Electrical & Electronics** before diving into CS
 - 🤖 Passionate about **AI/ML**, **Embedded Systems**, and **Full-Stack Dev**
 - 🏆 **1st Prize** at CREATE 2024 (National Level) for *Smart Sign Glove for Disabled People*
