@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saran M | Interactive AI Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Saran M - Interactive portfolio showcasing AI systems, full-stack pipelines, and embedded solutions.">
+</head>
+<body>
+    <!-- Background Canvas for Neural Particles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <svg class="git-logo" height="32" viewBox="0 0 16 16" width="32">
+                <path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.35 3.12.88.01.47.01.84.01.93 0 .22-.15.47-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+            </svg>
+            <div class="nav-search">
+                <input type="text" value="saran2006psg / portfolio" readonly>
+                <span class="search-badge">/</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">Overview</a>
+                <a href="#pull-requests">Pull requests</a>
+                <a href="#issues">Issues</a>
+                <a href="#codespaces">Codespaces</a>
+                <a href="#marketplace">Marketplace</a>
+                <a href="#explore">Explore</a>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <button class="icon-btn" aria-label="Notifications">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                    <path d="M8 16a2 2 0 0 0 1.985-1.75H6.015A2 2 0 0 0 8 16zm0-12.5h.01c.62 0 1.12.5 1.12 1.12v.63C10.63 5.75 11.5 7 11.5 8.5v3.25l1 1v.75h-9v-.75l1-1V8.5c0-1.5.87-2.75 2.37-3.25v-.63c0-.62.5-1.12 1.13-1.12zM9.5 2a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"></path>
+                </svg>
+            </button>
+            <button class="create-dropdown">
+                <span>+</span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="avatar-mini">
+                <img src="assets/saran.jpeg" onerror="this.onerror=null; this.src='https://github.com/saran2006psg.png';" alt="Saran M">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Sidebar: User Profile -->
+        <aside class="sidebar">
+            <div class="profile-pic-container">
+                <div class="profile-pic-inner">
+                    <img src="assets/saran.jpeg" onerror="this.onerror=null; this.src='https://github.com/saran2006psg.png';" alt="Saran M" class="profile-pic">
+                </div>
+                <div class="status-badge" title="Status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Exploring AI frontiers 🤖</span>
+                </div>
+            </div>
+            
+            <div class="profile-info">
+                <h1 class="user-fullname">Saran M</h1>
+                <p class="user-username">saran2006psg</p>
+                <div class="user-bio">
+                    AI Engineer &amp; Full-Stack Developer. Passionate about LLMs, RAG pipelines, model fine-tuning, and building systems that bridge intelligence with production code.
+                </div>
+                <button class="edit-profile-btn">Follow</button>
+                
+                <div class="user-stats">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="stats-icon">
+                        <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236 5.507 5.507 0 0 1 3.102-4.082A3.49 3.49 0 0 1 2 5.5zM4.5 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm7.25 1.25a.75.75 0 0 1 .75-.75h3.25a.75.75 0 0 1 0 1.5h-3.25a.75.75 0 0 1-.75-.75zm0 3.5a.75.75 0 0 1 .75-.75h3.25a.75.75 0 0 1 0 1.5h-3.25a.75.75 0 0 1-.75-.75zm0 3.5a.75.75 0 0 1 .75-.75h3.25a.75.75 0 0 1 0 1.5h-3.25a.75.75 0 0 1-.75-.75z"></path>
+                    </svg>
+                    <span class="stat-count">384</span> followers
+                    <span class="stat-separator">•</span>
+                    <span class="stat-count">92</span> following
+                </div>
+
+                <ul class="profile-details">
+                    <li>
+                        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                            <path d="M1.5 2A1.5 1.5 0 0 1 3 0.5h10A1.5 1.5 0 0 1 14.5 2v12a1.5 1.5 0 0 1-1.5 1.5H3a1.5 1.5 0 0 1-1.5-1.5V2zm1.5-.5a.5.5 0 0 0-.5.5v1.5h11V2a.5.5 0 0 0-.5-.5H3zm0 3v9a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-9H3z"></path>
+                        </svg>
+                        <span>PSG College of Technology</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                            <path d="M11.536 3.464a5 5 0 0 1 0 7.072L8 14.07l-3.536-3.535a5 5 0 0 1 0-7.072v.001a5 5 0 0 1 7.072 0zM8 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+                        </svg>
+                        <span>Tamil Nadu, India</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                            <path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2zM1.5 3.75v.7c.08.069.175.13.282.18l5.72 2.685a1.004 1.004 0 0 0 .996 0l5.72-2.685c.107-.05.202-.111.282-.18v-.7a.25.25 0 0 0-.25-.25H1.75a.25 2.25 0 0 0-.25.25zm13 2.138L8.97 8.437a2.502 2.502 0 0 1-1.94 0L1.5 5.888v6.362c0 .138.112.25.25.25h12.5a.25 2.25 0 0 0 .25-.25V5.888z"></path>
+                        </svg>
+                        <a href="mailto:saranpsg2006@gmail.com">saranpsg2006@gmail.com</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                            <path d="M3.75 2h8.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2zm.25 1.75v8.5c0 .138.112.25.25.25h8.5a.25 2.25 0 0 0 .25-.25v-8.5a.25 2.25 0 0 0-.25-.25h-8.5a.25 2.25 0 0 0-.25.25zM5 5h6v1.5H5V5zm0 3.5h6V10H5V8.5z"></path>
+                        </svg>
+                        <a href="https://linkedin.com/in/saranpsg" target="_blank">linkedin.com/in/saranpsg</a>
+                    </li>
+                </ul>
+
+                <hr class="sidebar-divider">
+                
+                <div class="achievements-section">
+                    <h3>Achievements</h3>
+                    <div class="achievement-badges">
+                        <div class="badge" title="Winner of ETHER-X 2026 Hackathon">🏆 ETHER-X Winner</div>
+                        <div class="badge" title="Winner of CREATE 2024 National level Competition">🥇 CREATE Winner</div>
+                        <div class="badge" title="Developer & AI enthusiast">🤖 AI Builder</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Content Block -->
+        <section class="content-area">
+            <!-- Tabs Menu -->
+            <nav class="content-tabs">
+                <button class="tab-link active" data-tab="overview">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="tab-icon">
+                        <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25V1.75zM1.5 1.75v12.5c0 .138.112.25.25.25h12.5a.25 2.25 0 0 0 .25-.25V1.75a.25 2.25 0 0 0-.25-.25H1.75a.25 2.25 0 0 0-.25.25z"></path>
+                    </svg>
+                    <span>Overview</span>
+                </button>
+                <button class="tab-link" data-tab="journey">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="tab-icon">
+                        <path d="M1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0zM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm.5 4.75a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 .324.614l2.5 1.75a.75.75 0 1 0 .852-1.228L8.5 7.576V4.75z"></path>
+                    </svg>
+                    <span>Timeline &amp; Journey</span>
+                </button>
+                <button class="tab-link" data-tab="playground">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="tab-icon">
+                        <path d="M8 15a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                        <path d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3zM4 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 4 8z"></path>
+                    </svg>
+                    <span>AI Agent Workspace</span>
+                </button>
+            </nav>
+
+            <!-- Tab Content: Overview -->
+            <div id="overview" class="tab-pane active">
+                <div class="section-header">
+                    <h2>Pinned Repositories</h2>
+                </div>
+
+                <!-- Projects Repository Grid -->
+                <div class="repo-grid">
+                    <!-- Project 1: AI Contract Risk Scanner -->
+                    <div class="repo-card border-glow-blue">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-accent" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <a href="https://github.com/saran2006psg/ContractRiskAnalyzer" target="_blank" class="repo-title">ContractRiskAnalyzer</a>
+                            <span class="repo-badge">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Built a legal risk classifier utilizing a RAG pipeline (9,447 clauses) with SentenceTransformers, Pinecone, and Modal serverless fine-tuned RoBERTa SLM.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color python"></span>Python</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://contract-risk-analyzer-sepia.vercel.app/" target="_blank">🔗 Live Demo</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: AgriConnect -->
+                    <div class="repo-card border-glow-emerald">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-success" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <a href="https://github.com/saran2006psg/aggriconnect" target="_blank" class="repo-title">AgriConnect</a>
+                            <span class="repo-badge">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Full-stack agricultural marketplace platform connecting farmers and consumers. Integrates role-based auth, wallet transaction ledgers, and crons.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color ts"></span>TypeScript</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://aggriconnect.vercel.app" target="_blank">🔗 Live Demo</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI.BASE -->
+                    <div class="repo-card border-glow-purple">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-purple" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <span class="repo-title">ai-base-omega</span>
+                            <span class="repo-badge font-semibold text-purple">Development</span>
+                        </div>
+                        <p class="repo-desc">
+                            A centralized hub indexing AI tool workflows, prompt matrices, setup guides, and tutorials with real-time semantic search indexing.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color js"></span>React / Next</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://ai-base-omega.vercel.app" target="_blank">🔗 Live Demo</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: VoteVision TN -->
+                    <div class="repo-card border-glow-blue">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-accent" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <span class="repo-title">VoteVision-TN</span>
+                            <span class="repo-badge">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Electoral district visualizer mapping 234 assembly constituencies in Tamil Nadu with real-time survey swing models and Leaflet integration.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color ts"></span>TypeScript</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://voter-vision.vercel.app" target="_blank">🔗 Live Demo</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: ReLive -->
+                    <div class="repo-card border-glow-amber">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-amber" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <a href="https://github.com/saran2006psg/relive-digital-memory-journal" target="_blank" class="repo-title">ReLive</a>
+                            <span class="repo-badge">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Digital memory journal featuring a postcard timeline, Polaroid gallery, mood tracking, Cloudinary media storage, and Supabase RLS policies.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color css-lang"></span>Next.js</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://relive-digital-memory-journal.vercel.app/" target="_blank">🔗 Live Demo</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: simpleNS -->
+                    <div class="repo-card border-glow-emerald">
+                        <div class="repo-header">
+                            <svg class="repo-icon text-success" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8z"></path>
+                            </svg>
+                            <a href="https://simplens.in" target="_blank" class="repo-title">simpleNS</a>
+                            <span class="repo-badge">Contributor</span>
+                        </div>
+                        <p class="repo-desc">
+                            An open-source, plugin-based notification orchestration engine built for developers desiring full database control.
+                        </p>
+                        <div class="repo-meta">
+                            <span class="lang-pill"><span class="lang-color ts"></span>TypeScript</span>
+                            <span class="meta-item hover-accent">
+                                <a href="https://simplens.in" target="_blank">🔗 Website</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heatmap Box Section -->
+                <div class="contribution-container-header">
+                    <h2>852 contributions in the last year</h2>
+                    <button class="simulate-btn" id="simulateCommitBtn">Simulate Commit</button>
+                </div>
+                <div class="contribution-box">
+                    <div class="calendar-scroll">
+                        <div class="calendar-grid" id="heatmapGrid">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                    <div class="calendar-footer">
+                        <span>Less</span>
+                        <div class="color-keys">
+                            <span class="square level-0"></span>
+                            <span class="square level-1"></span>
+                            <span class="square level-2"></span>
+                            <span class="square level-3"></span>
+                            <span class="square level-4"></span>
+                        </div>
+                        <span>More</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Journey (Timeline) -->
+            <div id="journey" class="tab-pane">
+                <div class="timeline-container">
+                    <!-- Timeline Node 1: SDE Intern -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-blue">Intern</div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3>Software Development Engineer Intern</h3>
+                                <span class="card-date">May 2026 – July 2026</span>
+                            </div>
+                            <h4 class="card-subtitle text-accent">DossierNexus • Remote</h4>
+                            <p class="card-desc">
+                                Engineered scalable backend components using Node.js, Express.js, and PostgreSQL. Designed real-time data streaming pipelines with SSE and WebSockets. Developed an autonomous natural language to SQL analytics copilot.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Node 2: ETHER-X Hackathon -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-amber">Hackathon</div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3>1st Prize Winner – ETHER-X 2026</h3>
+                                <span class="card-date">Feb 2026</span>
+                            </div>
+                            <h4 class="card-subtitle text-amber">ETHER-X Hackathon</h4>
+                            <p class="card-desc">
+                                Built a Transformer-based Web Application Firewall (WAF) using DistilBERT to classify HTTP network threats (SQL Injection, XSS) in real-time streams.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Node 3: PSG College of Technology -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-purple">Education</div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3>B.E. Computer Science &amp; Engineering (AIML)</h3>
+                                <span class="card-date">2024 – Expected 2027</span>
+                            </div>
+                            <h4 class="card-subtitle text-purple">PSG College of Technology • Coimbatore</h4>
+                            <p class="card-desc">
+                                Focusing on Dense Retrievers, SLMs, and RAG optimization. Active member of Infinitum Helpdesk and CodeNvibe clubs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Node 4: CREATE 2024 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-amber">Hackathon</div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3>First Prize Winner – CREATE 2024</h3>
+                                <span class="card-date">Dec 2024</span>
+                            </div>
+                            <h4 class="card-subtitle text-amber">National Level Technical Competition</h4>
+                            <p class="card-desc">
+                                Secured 1st Place for developing a "Smart Sign Glove for Disabled People" integrating gyroscopes, flex sensors, and a lightweight gesture recognition ML pipeline.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Node 5: Nachimuthu Polytechnic College -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge bg-purple">Education</div>
+                        <div class="timeline-card">
+                            <div class="card-header">
+                                <h3>Diploma in Electrical &amp; Electronics Engineering</h3>
+                                <span class="card-date">2021 – 2024</span>
+                            </div>
+                            <h4 class="card-subtitle text-purple">Nachimuthu Polytechnic College • Tamil Nadu</h4>
+                            <p class="card-desc">
+                                Specialization in control systems, sensor modeling, and embedded systems integration.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: AI Playground (Terminal + Monitoring Panel) -->
+            <div id="playground" class="tab-pane">
+                <div class="playground-layout">
+                    <!-- Column 1: Shell Terminal -->
+                    <div class="terminal-mockup">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="term-btn close"></span>
+                                <span class="term-btn minimize"></span>
+                                <span class="term-btn expand"></span>
+                            </div>
+                            <div class="terminal-title">bash - saran-agent@ai-base</div>
+                        </div>
+                        <div class="terminal-body" id="terminalOutput">
+                            <div class="term-line"><span class="text-success">saran-agent@portfolio:~$</span> init_copilot --mode=autonomous</div>
+                            <div class="term-line text-muted">Loading Claude-LLM pipelines &amp; embeddings index... Done.</div>
+                            <div class="term-line text-muted">Indexing 9,447 legal clauses for vector retriever... Done.</div>
+                            <div class="term-line"><span class="text-purple">[SYSTEM]</span> AI Agent initialized successfully! Select a script to run:</div>
+                            
+                            <div class="term-menu">
+                                <button class="term-cmd-btn" data-cmd="analyze_contract">analyze_contract.sh</button>
+                                <button class="term-cmd-btn" data-cmd="forecast_swing">predict_election_swing.py</button>
+                                <button class="term-cmd-btn" data-cmd="get_ai_hacks">fetch_productivity_hacks.sh</button>
+                                <button class="term-cmd-btn" data-cmd="test_firewall">eval_waf_firewall.sh</button>
+                            </div>
+                            
+                            <div id="terminalResponse" class="mt-4">
+                                <!-- Appended dynamically via JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: System Monitor Stats Panel -->
+                    <div class="system-stats-panel">
+                        <h3>
+                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0zm7.25-3.25v3.5a.75.75 0 0 1-1.5 0v-3.5a.75.75 0 0 1 1.5 0zm0 5.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0z"></path>
+                            </svg>
+                            Agent Status Monitor
+                        </h3>
+                        <div class="stat-row">
+                            <div class="stat-label-container">
+                                <span class="stat-label">Model Context Window</span>
+                                <span class="stat-val text-accent" id="contextWindowStat">92%</span>
+                            </div>
+                            <div class="stat-progress-bar">
+                                <div class="stat-progress-fill bg-blue-fill" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-label-container">
+                                <span class="stat-label">RAG Vector Match (Cosine)</span>
+                                <span class="stat-val text-success" id="vectorMatchStat">0.88</span>
+                            </div>
+                            <div class="stat-progress-bar">
+                                <div class="stat-progress-fill bg-emerald-fill" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-label-container">
+                                <span class="stat-label">LoRA Inference Latency</span>
+                                <span class="stat-val text-purple" id="latencyStat">12.8ms</span>
+                            </div>
+                            <div class="stat-progress-bar">
+                                <div class="stat-progress-fill bg-purple-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <hr style="margin: 4px 0; border-color: rgba(255,255,255,0.04);">
+                        <div class="radar-grid">
+                            <div class="radar-item">
+                                <span>Agent State</span>
+                                <span class="text-success" style="animation: term-pulse 2s infinite ease-in-out;" id="agentStateStat">IDLE</span>
+                            </div>
+                            <div class="radar-item">
+                                <span>Loaded Weights</span>
+                                <span>DistilBERT / LLaMA</span>
+                            </div>
+                            <div class="radar-item">
+                                <span>Pinecone Index</span>
+                                <span>9,447 Vectors</span>
+                            </div>
+                            <div class="radar-item">
+                                <span>Active Stream</span>
+                                <span>SSE / WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <span>© 2026 saran2006psg</span>
+            <a href="https://github.com/saran2006psg" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/saranpsg" target="_blank">LinkedIn</a>
+            <a href="mailto:saranpsg2006@gmail.com">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
