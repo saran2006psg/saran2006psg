@@ -1,9 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     // -------------------------------------------------------------------------
-    // 1. TAB SYSTEM WIDGET WITH INTERACTIVE FADE
+    // 1. SLIDING TAB INDICATOR & SWITCHING SYSTEM
     // -------------------------------------------------------------------------
     const tabLinks = document.querySelectorAll(".tab-link");
     const tabPanes = document.querySelectorAll(".tab-pane");
+    const tabIndicator = document.querySelector(".tab-indicator");
+
+    function updateTabIndicator(activeButton) {
+        if (tabIndicator && activeButton) {
+            tabIndicator.style.width = `${activeButton.offsetWidth}px`;
+            tabIndicator.style.left = `${activeButton.offsetLeft}px`;
+        }
+    }
+
+    // Set initial position of tab indicator
+    const initialActiveTab = document.querySelector(".tab-link.active");
+    if (initialActiveTab) {
+        // Delay slightly to ensure width is calculated correctly after font load
+        setTimeout(() => updateTabIndicator(initialActiveTab), 100);
+    }
 
     tabLinks.forEach(link => {
         link.addEventListener("click", () => {
@@ -11,32 +26,80 @@ document.addEventListener("DOMContentLoaded", () => {
             tabPanes.forEach(pane => pane.classList.remove("active"));
 
             link.classList.add("active");
+            updateTabIndicator(link);
+
             const targetTab = link.getAttribute("data-tab");
             const activePane = document.getElementById(targetTab);
             activePane.classList.add("active");
 
-            // Custom stats animation trigger when switching to playground
+            // Reset and trigger timeline animations when switching to journey tab
+            if (targetTab === "journey") {
+                const timelineItems = activePane.querySelectorAll(".timeline-item");
+                timelineItems.forEach(item => {
+                    // Temporarily remove and trigger animation reflow
+                    item.style.animation = 'none';
+                    item.offsetHeight; // trigger reflow
+                    item.style.animation = '';
+                });
+            }
+
+            // Trigger progress bar animations for monitor
             if (targetTab === "playground") {
                 animateProgressGauges();
             }
         });
     });
 
+    // Handle window resize for tab indicator positioning
+    window.addEventListener("resize", () => {
+        const activeTab = document.querySelector(".tab-link.active");
+        if (activeTab) updateTabIndicator(activeTab);
+    });
+
     // -------------------------------------------------------------------------
-    // 2. DYNAMIC GITHUB HEATMAP SIMULATION & SIMULATOR BUTTON
+    // 2. 3D PERSPECTIVE TILT & CURSOR-TRACKING GLARE ON CARDS
+    // -------------------------------------------------------------------------
+    const interactiveElements = document.querySelectorAll(".repo-card, .timeline-card, .system-stats-panel");
+
+    interactiveElements.forEach(el => {
+        el.addEventListener("mousemove", (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left; // cursor x inside element
+            const y = e.clientY - rect.top;  // cursor y inside element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate tilt coordinates (Max 5 degrees rotation)
+            const rotateX = ((centerY - y) / centerY) * 5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            
+            // Dynamic glare effect reflecting pointer coordinates
+            el.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px, rgba(56, 189, 248, 0.07) 0%, rgba(13, 22, 42, 0.45) 80%)`;
+        });
+        
+        el.addEventListener("mouseleave", () => {
+            // Restore default transformations smoothly
+            el.style.transform = "";
+            el.style.backgroundImage = "";
+        });
+    });
+
+    // -------------------------------------------------------------------------
+    // 3. DYNAMIC GITHUB HEATMAP SIMULATION & SIMULATOR BUTTON
     // -------------------------------------------------------------------------
     const heatmapGrid = document.getElementById("heatmapGrid");
     const simulateBtn = document.getElementById("simulateCommitBtn");
     const daysOfWeek = 7;
     const totalDays = 53 * daysOfWeek; // 371 squares
     
-    // Generate dates starting one year ago
     const startDate = new Date();
     startDate.setFullYear(startDate.getFullYear() - 1);
-    
     const squaresList = [];
 
-    // Generate custom commits levels with random clusters (weekday bias)
+    // Generate custom commits levels with random clusters
     for (let i = 0; i < totalDays; i++) {
         const square = document.createElement("div");
         square.className = "square";
@@ -47,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const day = date.getDay();
         const isWeekend = (day === 0 || day === 6);
         
-        // Commits level weighting logic
         let level = 0;
         const rand = Math.random();
         
@@ -63,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         square.classList.add(`level-${level}`);
         square.dataset.date = date.toISOString();
-        square.dataset.level = level;
         
         const commitCount = level === 0 ? "No" : level * 2 + Math.floor(Math.random() * 3);
         const dateStr = date.toLocaleDateString("en-US", { month: 'short', day: 'numeric', year: 'numeric' });
@@ -73,14 +134,11 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresList.push(square);
     }
 
-    // Simulate Commit Click Interaction
     if (simulateBtn) {
         simulateBtn.addEventListener("click", () => {
-            // Pick a random square to light up
             const randomIndex = Math.floor(Math.random() * squaresList.length);
             const targetSquare = squaresList[randomIndex];
             
-            // Set it to max level and trigger a visual pop animation
             targetSquare.className = "square level-4";
             targetSquare.style.transform = "scale(1.6)";
             
@@ -89,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const newCount = 8 + Math.floor(Math.random() * 4);
             targetSquare.setAttribute("title", `${newCount} contributions on ${dateStr} (Simulated)`);
 
-            // Temporarily change button text to show success feedback
             const originalText = simulateBtn.textContent;
             simulateBtn.textContent = "✔ Contribution Pushed!";
             simulateBtn.style.borderColor = "var(--accent-emerald)";
@@ -105,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -------------------------------------------------------------------------
-    // 3. HTML5 CANVAS NEURAL NET + CODE PARTICLES SYSTEM (MOUSE REACTIVE)
+    // 4. HTML5 CANVAS NEURAL NET + CODE PARTICLES SYSTEM (MOUSE REACTIVE)
     // -------------------------------------------------------------------------
     const canvas = document.getElementById("particleCanvas");
     const ctx = canvas.getContext("2d");
@@ -113,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
     
-    // Mouse Position Tracker
     const mouse = {
         x: null,
         y: null,
@@ -121,8 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener("mousemove", (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
     });
 
     window.addEventListener("mouseout", () => {
@@ -136,23 +192,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const particles = [];
-    const particleCount = 60;
-    const maxDistance = 120;
-    const codeWords = ["</>", "AI.BASE", "RAG", "LLM", "WAF", "C++", "Python", "Node", "Postgres", "PyTorch", "LoRA", "const"];
+    const particleCount = 65;
+    const maxDistance = 110;
+    const codeWords = ["</>", "AI.BASE", "RAG", "LLM", "WAF", "C++", "Python", "Node.js", "Postgres", "PyTorch", "LoRA", "const"];
     
     class Particle {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.4;
-            this.vy = (Math.random() - 0.5) * 0.4;
+            this.vx = (Math.random() - 0.5) * 0.35;
+            this.vy = (Math.random() - 0.5) * 0.35;
             this.baseRadius = Math.random() * 1.5 + 1;
             this.r = this.baseRadius;
-            this.word = Math.random() > 0.6 ? codeWords[Math.floor(Math.random() * codeWords.length)] : null;
+            this.word = Math.random() > 0.65 ? codeWords[Math.floor(Math.random() * codeWords.length)] : null;
         }
         
         update() {
-            // Interactive mouse repelling logic
             if (mouse.x != null && mouse.y != null) {
                 const dx = this.x - mouse.x;
                 const dy = this.y - mouse.y;
@@ -160,9 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (dist < mouse.radius) {
                     const force = (mouse.radius - dist) / mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    this.x += Math.cos(angle) * force * 2;
-                    this.y += Math.sin(angle) * force * 2;
-                    this.r = this.baseRadius * 1.6;
+                    this.x += Math.cos(angle) * force * 1.8;
+                    this.y += Math.sin(angle) * force * 1.8;
+                    this.r = this.baseRadius * 1.5;
                 } else {
                     this.r = this.baseRadius;
                 }
@@ -173,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
             this.x += this.vx;
             this.y += this.vy;
             
-            // Bounce walls
             if (this.x < 0 || this.x > width) this.vx *= -1;
             if (this.y < 0 || this.y > height) this.vy *= -1;
         }
@@ -181,12 +235,12 @@ document.addEventListener("DOMContentLoaded", () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(100, 116, 139, 0.22)";
+            ctx.fillStyle = "rgba(100, 116, 139, 0.2)";
             ctx.fill();
             
             if (this.word) {
-                ctx.fillStyle = "rgba(56, 189, 248, 0.18)";
-                ctx.font = "10px JetBrains Mono";
+                ctx.fillStyle = "rgba(56, 189, 248, 0.16)";
+                ctx.font = "9px JetBrains Mono";
                 ctx.fillText(this.word, this.x + 8, this.y + 4);
             }
         }
@@ -205,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
             p.draw();
         });
         
-        // Draw connection networks
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
@@ -217,19 +270,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     
-                    // Increase line opacity if near mouse
-                    let baseAlpha = 0.09 * (1 - dist / maxDistance);
+                    let baseAlpha = 0.08 * (1 - dist / maxDistance);
                     if (mouse.x != null && mouse.y != null) {
                         const midX = (particles[i].x + particles[j].x) / 2;
                         const midY = (particles[i].y + particles[j].y) / 2;
                         const mDist = Math.sqrt((midX - mouse.x)**2 + (midY - mouse.y)**2);
                         if (mDist < mouse.radius) {
-                            baseAlpha *= 2.2;
+                            baseAlpha *= 2.0;
                         }
                     }
                     
                     ctx.strokeStyle = `rgba(56, 189, 248, ${baseAlpha})`;
-                    ctx.lineWidth = 0.8;
+                    ctx.lineWidth = 0.75;
                     ctx.stroke();
                 }
             }
@@ -240,12 +292,11 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 
     // -------------------------------------------------------------------------
-    // 4. INTERACTIVE TERMINAL PLAYGROUND & MONITOR SYNCHRONIZER
+    // 5. INTERACTIVE TERMINAL PLAYGROUND & MONITOR SYNCHRONIZER
     // -------------------------------------------------------------------------
     const termCmdBtns = document.querySelectorAll(".term-cmd-btn");
     const terminalResponse = document.getElementById("terminalResponse");
     
-    // Status indicators HTML nodes
     const contextWindowStat = document.getElementById("contextWindowStat");
     const vectorMatchStat = document.getElementById("vectorMatchStat");
     const latencyStat = document.getElementById("latencyStat");
@@ -254,7 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const fills = document.querySelectorAll(".stat-progress-fill");
 
     function animateProgressGauges() {
-        // Simple animation to fill gauges when loading
         fills.forEach(fill => {
             const w = fill.style.width;
             fill.style.width = "0%";
@@ -330,36 +380,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const cmd = btn.getAttribute("data-cmd");
             const cmdText = btn.textContent;
             
-            // 1. Sync Stats Monitor to Running Mode
             if (agentStateStat) {
                 agentStateStat.textContent = "RUNNING";
                 agentStateStat.className = "text-amber";
             }
             
-            // Randomly spike monitor progress values while executing
             if (contextWindowStat) {
                 contextWindowStat.textContent = "96%";
                 fills[0].style.width = "96%";
             }
             if (latencyStat) {
-                // Pick a realistic spiked latency
                 const spike = (cmd === 'test_firewall') ? "12.8ms" : (cmd === 'analyze_contract' ? "85.2ms" : "44.6ms");
                 latencyStat.textContent = spike;
                 fills[2].style.width = (cmd === 'analyze_contract' ? "90%" : "72%");
             }
             if (vectorMatchStat) {
-                // Change cosine similarity matching value
                 const matchVal = (cmd === 'analyze_contract') ? "0.94" : "0.85";
                 vectorMatchStat.textContent = matchVal;
                 fills[1].style.width = (cmd === 'analyze_contract' ? "94%" : "85%");
             }
 
-            // 2. Print command line trigger
             const userLine = document.createElement("div");
             userLine.className = "term-line mt-4";
             userLine.innerHTML = `<span class="text-success">saran-agent@portfolio:~$</span> run ${cmdText}`;
             
-            // Print loading placeholder
             const loadLine = document.createElement("div");
             loadLine.className = "term-line text-muted italic animate-pulse-slow";
             loadLine.textContent = "Processing agent task...";
@@ -367,20 +411,16 @@ document.addEventListener("DOMContentLoaded", () => {
             terminalResponse.appendChild(userLine);
             terminalResponse.appendChild(loadLine);
             
-            // Auto scroll terminal
             const terminalBody = document.querySelector(".terminal-body");
             terminalBody.scrollTop = terminalBody.scrollHeight;
             
             setTimeout(() => {
-                // Remove loading placeholder line
                 loadLine.remove();
                 
-                // Append real-time command output
                 const respDiv = document.createElement("div");
                 respDiv.innerHTML = commandResponses[cmd];
                 terminalResponse.appendChild(respDiv);
                 
-                // Reset Monitor Stats back to normal stable state
                 if (agentStateStat) {
                     agentStateStat.textContent = "IDLE";
                     agentStateStat.className = "text-success";
@@ -390,7 +430,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     fills[0].style.width = "92%";
                 }
                 
-                // Auto scroll terminal again
                 terminalBody.scrollTop = terminalBody.scrollHeight;
             }, 850);
         });
