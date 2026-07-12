@@ -4,13 +4,19 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=F8FAFC&center=true&vCenter=true&width=500&height=50&lines=Exploring+AI+Frontiers+%F0%9F%A5%97;Building+Autonomous+Agents+%F0%9F%A4%96;Full-Stack+%2B+Embedded+Systems+%E2%9A%A1" alt="Saran M Typing SVG" />
 
   <p align="center">
+    <a href="https://saran2006psg.github.io/saran2006psg/" target="_blank">
+      <img src="https://img.shields.io/badge/🚀_LAUNCH_INTERACTIVE_PORTFOLIO-0EA5E9?style=for-the-badge&logo=rocket&logoColor=white" alt="Launch Interactive Portfolio" />
+    </a>
+  </p>
+
+  <p align="center">
     <a href="https://linkedin.com/in/saranpsg" target="_blank">
       <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
     <a href="mailto:saranpsg2006@gmail.com">
       <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
     </a>
-    <a href="https://saran2006psg.github.io" target="_blank">
+    <a href="https://saran2006psg.github.io/saran2006psg/" target="_blank">
       <img src="https://img.shields.io/badge/Live_Portfolio-000000?style=flat-square&logo=vercel&logoColor=white" alt="Portfolio" />
     </a>
   </p>
