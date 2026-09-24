@@ -81,7 +81,7 @@
   <tr>
     <td width="50%" valign="top" style="padding-bottom: 20px;">
       <h4>⚙️ AI.BASE</h4>
-      <p>A centralized hub indexing AI tool workflows, prompt matrices, and setup guides to solve fragmented productivity tooling.</p>
+      <p>A CENTRALIZED HUB indexing AI tool workflows, prompt matrices, and setup guides to solve fragmented productivity tooling.</p>
       <p>
         <img src="https://img.shields.io/badge/React-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB" alt="React" />
         <img src="https://img.shields.io/badge/Next.js-black?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js" />
